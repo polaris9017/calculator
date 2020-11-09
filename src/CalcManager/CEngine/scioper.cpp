@@ -162,18 +162,18 @@ CalcEngine::Rational CCalcEngine::DoOperation(int operation, CalcEngine::Rationa
             result = (Log(rhs) / Log(result));
             break;
         case IDC_PERMUTATION:
-            if (result > rhs) // Case when 'n < r'
+            if (rhs > result) // Case when 'n < r'
             {
                 throw CALC_E_NORESULT;
             }
-            result = (Fact(rhs) / (Fact(rhs - result)));
+            result = (Fact(result) / (Fact(result - rhs)));
             break;
         case IDC_COMBINATION:
-            if (result > rhs) // Case when 'n < r'
+            if (rhs > result) // Case when 'n < r'
             {
                 throw CALC_E_NORESULT;
             }
-            result = (Fact(rhs) / (Fact(rhs - result) * Fact(result)));
+            result = (Fact(result) / (Fact(result - rhs) * Fact(rhs)));
             break;
         }
     }
