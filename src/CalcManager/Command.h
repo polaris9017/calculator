@@ -175,6 +175,8 @@ namespace CalculationManager
         CommandRSHFL = 505,
         CommandRand = 600,
         CommandEuler = 601,
+        CommandPermutation = 602, //Permutation (nPr)
+        CommandCombination = 603, //Combination (nCr)
 
         CommandAnd = 86,
         CommandOR = 87,

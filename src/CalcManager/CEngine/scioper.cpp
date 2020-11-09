@@ -161,6 +161,20 @@ CalcEngine::Rational CCalcEngine::DoOperation(int operation, CalcEngine::Rationa
         case IDC_LOGBASEY:
             result = (Log(rhs) / Log(result));
             break;
+        case IDC_PERMUTATION:
+            if (result > rhs) // Case when 'n < r'
+            {
+                throw CALC_E_NORESULT;
+            }
+            result = (Fact(rhs) / (Fact(rhs - result)));
+            break;
+        case IDC_COMBINATION:
+            if (result > rhs) // Case when 'n < r'
+            {
+                throw CALC_E_NORESULT;
+            }
+            result = (Fact(rhs) / (Fact(rhs - result) * Fact(result)));
+            break;
         }
     }
     catch (uint32_t dwErrCode)

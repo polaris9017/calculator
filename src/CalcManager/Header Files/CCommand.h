@@ -175,6 +175,8 @@
 
 #define IDC_RAND            600 // Random
 #define IDC_EULER           601 // e Constant
+#define IDC_PERMUTATION     602 //Permutation (nPr)
+#define IDC_COMBINATION     603 //Combination (nCr)
 
 #define IDC_BINEDITSTART 700
 #define IDC_BINPOS0 700
