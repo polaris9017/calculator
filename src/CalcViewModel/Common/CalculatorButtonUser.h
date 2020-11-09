@@ -120,6 +120,8 @@ public
         RshL = (int)CM::Command::CommandRSHFL,
         RolC = (int)CM::Command::CommandROLC,
         RorC = (int)CM::Command::CommandRORC,
+        Permut = (int)CM::Command::CommandPermutation,
+        Combi = (int)CM::Command::CommandCombination,
             
         BINSTART = (int)CM::Command::CommandBINEDITSTART,
         BINPOS0 = (int)CM::Command::CommandBINPOS0,

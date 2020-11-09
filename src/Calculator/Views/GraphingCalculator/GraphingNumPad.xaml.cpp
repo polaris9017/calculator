@@ -198,6 +198,8 @@ const std::tuple<Platform::String ^, int, int> GraphingNumPad::GetButtonOutput(N
         { NumbersAndOperatorsEnum::Eight, { L"8", 1, 0 } },
         { NumbersAndOperatorsEnum::Nine, { L"9", 1, 0 } },
         { NumbersAndOperatorsEnum::Decimal, { StringReference(LocalizationSettings::GetInstance().GetDecimalSeparatorStr().data()), 1, 0 } },
+        { NumbersAndOperatorsEnum::Permut, { "permut(n" + StringReference(LocalizationSettings::GetInstance().GetListSeparator().data()) + L" r)", 7, 1 } },
+        { NumbersAndOperatorsEnum::Combi, { "combi(n" + StringReference(LocalizationSettings::GetInstance().GetListSeparator().data()) + L" r)", 6, 1 } },
     };
     return buttonOutput.find(id)->second;
 }

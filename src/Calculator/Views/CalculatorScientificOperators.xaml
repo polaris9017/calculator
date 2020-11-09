@@ -88,6 +88,7 @@
 
                         <Setter Target="TrigButton.IsEnabled" Value="False"/>
                         <Setter Target="FuncButton.IsEnabled" Value="False"/>
+                        <Setter Target="CombButton.IsEnabled" Value="False"/>
                         <Setter Target="EulerButton.IsEnabled" Value="False"/>
                         <Setter Target="AbsButton.IsEnabled" Value="False"/>
                         <Setter Target="LogBaseY.IsEnabled" Value="False"/>
@@ -175,15 +176,21 @@
                         <Setter Target="DmsButton.FontSize" Value="{ThemeResource CalcButtonTextIconCaptionSize}"/>
                         <Setter Target="DegreesButton.FontSize" Value="{ThemeResource CalcButtonTextIconCaptionSize}"/>
 
+                        <Setter Target="PermutFlyoutButton.FontSize" Value="{ThemeResource CalcButtonTextIconCaptionSize}"/>
+                        <Setter Target="CombiButton.FontSize" Value="{ThemeResource CalcButtonTextIconCaptionSize}"/>
+
                         <Setter Target="OperatorPanelRow.MinHeight" Value="{StaticResource OperatorPanelButtonRowSizeLarge}"/>
 
                         <Setter Target="TrigButton.Style" Value="{StaticResource OperatorPanelButtonLargeStyle}"/>
                         <Setter Target="FuncButton.Style" Value="{StaticResource OperatorPanelButtonLargeStyle}"/>
+                        <Setter Target="CombButton.Style" Value="{StaticResource OperatorPanelButtonLargeStyle}"/>
 
                         <Setter Target="TrigGrid.MinWidth" Value="516"/>
                         <Setter Target="TrigGrid.MinHeight" Value="192"/>
                         <Setter Target="FuncGrid.MinWidth" Value="387"/>
                         <Setter Target="FuncGrid.MinHeight" Value="192"/>
+                        <Setter Target="CombGrid.MinWidth" Value="387"/>
+                        <Setter Target="CombGrid.MinHeight" Value="192"/>
 
                     </VisualState.Setters>
                 </VisualState>
@@ -265,15 +272,21 @@
                         <Setter Target="DmsButton.FontSize" Value="{ThemeResource CalcStandardOperatorTextIconCaptionSize}"/>
                         <Setter Target="DegreesButton.FontSize" Value="{ThemeResource CalcStandardOperatorTextIconCaptionSize}"/>
 
+                        <Setter Target="PermutFlyoutButton.FontSize" Value="{ThemeResource CalcStandardOperatorTextIconCaptionSize}"/>
+                        <Setter Target="CombiButton.FontSize" Value="{ThemeResource CalcStandardOperatorTextIconCaptionSize}"/>
+
                         <Setter Target="OperatorPanelRow.MinHeight" Value="{StaticResource OperatorPanelButtonRowSizeMedium}"/>
 
                         <Setter Target="TrigButton.Style" Value="{StaticResource OperatorPanelButtonMediumStyle}"/>
                         <Setter Target="FuncButton.Style" Value="{StaticResource OperatorPanelButtonMediumStyle}"/>
+                        <Setter Target="CombButton.Style" Value="{StaticResource OperatorPanelButtonMediumStyle}"/>
 
                         <Setter Target="TrigGrid.MinWidth" Value="480"/>
                         <Setter Target="TrigGrid.MinHeight" Value="144"/>
                         <Setter Target="FuncGrid.MinWidth" Value="360"/>
                         <Setter Target="FuncGrid.MinHeight" Value="144"/>
+                        <Setter Target="CombGrid.MinWidth" Value="360"/>
+                        <Setter Target="CombGrid.MinHeight" Value="144"/>
 
                     </VisualState.Setters>
                 </VisualState>
@@ -353,15 +366,21 @@
                         <Setter Target="DmsButton.FontSize" Value="{ThemeResource CalcOperatorTextIconCaptionSize}"/>
                         <Setter Target="DegreesButton.FontSize" Value="{ThemeResource CalcOperatorTextIconCaptionSize}"/>
 
+                        <Setter Target="PermutFlyoutButton.FontSize" Value="{ThemeResource CalcOperatorTextIconCaptionSize}"/>
+                        <Setter Target="CombiButton.FontSize" Value="{ThemeResource CalcOperatorTextIconCaptionSize}"/>
+
                         <Setter Target="OperatorPanelRow.MinHeight" Value="{ThemeResource OperatorPanelButtonRowSizeSmall}"/>
 
                         <Setter Target="TrigButton.Style" Value="{StaticResource OperatorPanelButtonSmallStyle}"/>
                         <Setter Target="FuncButton.Style" Value="{StaticResource OperatorPanelButtonSmallStyle}"/>
+                        <Setter Target="CombButton.Style" Value="{StaticResource OperatorPanelButtonSmallStyle}"/>
 
                         <Setter Target="TrigGrid.MinWidth" Value="258"/>
                         <Setter Target="TrigGrid.MinHeight" Value="96"/>
                         <Setter Target="FuncGrid.MinWidth" Value="194"/>
                         <Setter Target="FuncGrid.MinHeight" Value="96"/>
+                        <Setter Target="CombGrid.MinWidth" Value="194"/>
+                        <Setter Target="CombGrid.MinHeight" Value="96"/>
 
                     </VisualState.Setters>
                 </VisualState>
@@ -850,6 +869,56 @@
                                                        Command="{x:Bind Model.ButtonPressed}"
                                                        Content="&#xF891;"
                                                        IsEnabled="{x:Bind FuncButton.IsEnabled, Mode=OneWay}"/>
+                        </Grid>
+                    </Flyout>
+                </controls:OperatorPanelButton.FlyoutMenu>
+            </controls:OperatorPanelButton>
+
+            <controls:OperatorPanelButton x:Name="CombButton"
+                                          x:Uid="combButton"
+                                          Style="{StaticResource OperatorPanelButtonStyle}"
+                                          AutomationProperties.AutomationId="combButton"
+                                          Glyph="&#xF893;">
+
+                <controls:OperatorPanelButton.FlyoutMenu>
+                    <Flyout x:Name="CombFlyout"
+                            Windows10version1809:AreOpenCloseAnimationsEnabled="False"
+                            FlyoutPresenterStyle="{ThemeResource OperatorPanelFlyoutStyle}"
+                            Placement="Bottom">
+
+                        <Grid x:Name="CombGrid"
+                              MinWidth="194"
+                              MinHeight="96"
+                              XYFocusKeyboardNavigation="Enabled">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CalculatorButton x:Name="PermutFlyoutButton"
+                                                       x:Uid="permutButton"
+                                                       Style="{StaticResource OperatorButtonStyle}"
+                                                       AutomationProperties.AutomationId="permutButton"
+                                                       ButtonId="Permut"
+                                                       Click="FlyoutButton_Clicked"
+                                                       Command="{x:Bind Model.ButtonPressed}"
+                                                       Content="nPr"
+                                                       IsEnabled="{x:Bind CombButton.IsEnabled, Mode=OneWay}"/>
+
+                            <controls:CalculatorButton x:Name="CombiButton"
+                                                       x:Uid="combiButton"
+                                                       Grid.Column="1"
+                                                       Style="{StaticResource OperatorButtonStyle}"
+                                                       AutomationProperties.AutomationId="combiButton"
+                                                       ButtonId="Combi"
+                                                       Click="FlyoutButton_Clicked"
+                                                       Command="{x:Bind Model.ButtonPressed}"
+                                                       Content="nCr"
+                                                       IsEnabled="{x:Bind CombButton.IsEnabled, Mode=OneWay}"/>
                         </Grid>
                     </Flyout>
                 </controls:OperatorPanelButton.FlyoutMenu>
